@@ -1,0 +1,19 @@
+{
+    "name": "CMPS11",
+    "version": "0.0.0",
+    "description": "Magnetic Senso rCmps11",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts",
+        "_locales/zh/CMPS11-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": false
+}
