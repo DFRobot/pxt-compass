@@ -80,8 +80,8 @@ namespace AMC5883L {
 
     
     //% advanced=true shim=AMC5883L::cpp_division
-    function cpp_division(x: number,y: number): string {
-        return ""
+    function cpp_division(x: number, _x: number, y: number, _y: number): number { 
+        return 0
     }
 
 
@@ -219,7 +219,7 @@ namespace AMC5883L {
     //% weight=80
     //% blockId=AMC5883L_readHeading
     //% block="Read heading"
-    export function AMC5883L_readHeading(a: number): number {
+    export function AMC5883L_readHeading(): number {
         if(!AMC5883L_readRaw()) return 0
         let x = X
         let y = Y
@@ -239,15 +239,17 @@ namespace AMC5883L {
         let _fx = x % (xhigh - xlow)
         let fy = y / (yhigh - ylow)
         let _fy = y % (yhigh - ylow)
+
+        return cpp_division(fx, _fx, fy, _fy)
    
+
+
       //  let fx = pins.createBuffer(2)
        // let fy = pins.createBuffer(2)
        // fx = cpp_division(x, xhigh - xlow);
         //fy = cpp_division(x, xhigh - xlow);
 
        // let heading = 180.0*
-        
-       return 0
     }
 
     /**
