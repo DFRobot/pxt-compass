@@ -128,7 +128,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_init
-    //% block = "Init"
+    //% block="Init"
     export function AMC5883L_init(): void {
         addr = QMC5883L_ADDR
         oversampling = QMC5883L_CONFIG_OS512
@@ -145,7 +145,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_init
-    //% block = "set sampling rate %SamplingRate"
+    //% block="set sampling rate %SamplingRate"
     export function AMC5883L_setSamplingRate(SamplingRate: Sampling): void {
         switch (SamplingRate) { 
             case Sampling._10HZ: rate = QMC5883L_CONFIG_10HZ;
@@ -167,7 +167,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_readRaw
-    //% block = "Read heading"
+    //% block="Read heading"
     export function AMC5883L_readRaw(): number {
         while (!ready()) { }
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
@@ -186,7 +186,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_readHeading
-    //% block = "Read heading"
+    //% block="Read heading"
     export function AMC5883L_readHeading(a: number): number {
        /* if(!AMC5883L_readRaw()) return 0
         let x = X
@@ -220,7 +220,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_x
-    //% block = "X"
+    //% block="X"
     export function AMC5883L_x(): number {
         return X
     }
@@ -231,7 +231,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_y
-    //% block = "X"
+    //% block="Y"
     export function AMC5883L_y(): number {
         return Y
     }
@@ -242,7 +242,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_z
-    //% block = "X"
+    //% block="Z"
     export function AMC5883L_z(): number {
         return Z
     }
