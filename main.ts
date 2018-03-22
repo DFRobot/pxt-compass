@@ -78,8 +78,11 @@ namespace AMC5883L {
         _200HZ = 200
     }
 
-
-
+    
+    //% advanced=true shim=AMC5883L::cpp_division
+    function cpp_division(x: number,y: number): string {
+        return ""
+    }
 
 
 
@@ -125,6 +128,9 @@ namespace AMC5883L {
         let status = i2cReadByte(1)[0]
         return status & QMC5883L_STATUS_DRDY
     }
+
+
+    
 
     /**
      * This function is used to get all of the sensor data,
@@ -277,5 +283,7 @@ namespace AMC5883L {
     export function AMC5883L_z(): number {
         return Z
     }
+
+
 
 }
