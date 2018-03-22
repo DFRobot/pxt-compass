@@ -175,17 +175,29 @@ namespace AMC5883L {
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
             return 0
         }
-        let q = i2cReadByte();
-        let w = i2cReadByte();
-        let e = i2cReadByte();
-        let r = i2cReadByte();
-        let t = i2cReadByte();
-        let y = i2cReadByte();
-        serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+y+"|\r")
+       /* let q = i2cReadByte(); 0
+        let w = i2cReadByte(); 121
+        let e = i2cReadByte(); 248
+        let r = i2cReadByte(); 5
+        let t = i2cReadByte(); 0
+        let y = i2cReadByte(); 1
+        serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+y+"|\r")*/
 
-        X = i2cReadByte() | (i2cReadByte() << 8)
-        Y = i2cReadByte() | (i2cReadByte() << 8)
-        Z = i2cReadByte() | (i2cReadByte() << 8)
+        let x = i2cReadByte() | (i2cReadByte() << 8)
+        let y = i2cReadByte() | (i2cReadByte() << 8)
+        let z = i2cReadByte() | (i2cReadByte() << 8)
+        if (x > 32767) { 
+            x = x-65536
+        }
+        if (y > 32767) { 
+            y = y-65536
+        }
+        if (z > 32767) { 
+            z = z-65536
+        }
+        X = x;
+        Y = y;
+        Z = z;
         return 1
     }
 
