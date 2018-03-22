@@ -78,11 +78,6 @@ namespace AMC5883L {
         _200HZ = 200
     }
 
-   /* //% advanced=true shim=AMC5883L::cpp_division
-    function cpp_division(a: number, b: number): Buffer {
-        let buf = pins.createBuffer(2)
-        return buf
-    }    */
 
 
 
