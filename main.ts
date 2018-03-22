@@ -144,7 +144,7 @@ namespace AMC5883L {
      * perform this function.
     */
     //% weight=80
-    //% blockId=AMC5883L_init
+    //% blockId=AMC5883L_setSamplingRate
     //% block="set sampling rate %SamplingRate"
     export function AMC5883L_setSamplingRate(SamplingRate: Sampling): void {
         switch (SamplingRate) { 
@@ -167,7 +167,7 @@ namespace AMC5883L {
     */
     //% weight=80
     //% blockId=AMC5883L_readRaw
-    //% block="Read heading"
+    //% block="Read raw"
     export function AMC5883L_readRaw(): number {
         while (!ready()) { }
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
