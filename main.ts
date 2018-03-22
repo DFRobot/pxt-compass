@@ -175,6 +175,14 @@ namespace AMC5883L {
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
             return 0
         }
+        let q = i2cReadByte();
+        let w = i2cReadByte();
+        let e = i2cReadByte();
+        let r = i2cReadByte();
+        let t = i2cReadByte();
+        let y = i2cReadByte();
+        serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+y+"|\r")
+
         X = i2cReadByte() | (i2cReadByte() << 8)
         Y = i2cReadByte() | (i2cReadByte() << 8)
         Z = i2cReadByte() | (i2cReadByte() << 8)
