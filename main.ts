@@ -90,11 +90,11 @@ namespace AMC5883L {
 
     function i2cRead(addr: number, reg: number, count: number) { 
         i2cWriteByte(reg)
-        let n =pins.i2cReadBuffer(addr, count).length
-        if (n != count) { 
-            return 0
-        }
-        return n
+        //let n =pins.i2cReadBuffer(addr, count).length
+        //if (n != count) { 
+        //    return 0
+        //}
+        return count
     }
 
     function i2cWrite(addr: number, reg: number, value: number) {
