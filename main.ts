@@ -182,7 +182,7 @@ namespace AMC5883L {
         let r = data[3]
         let t = data[4]
         let u = data[5]
-        serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+u+"|\r")
+        //serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+u+"|\r")
 
         let x = q | (w << 8)
         let y = e | (r << 8)
