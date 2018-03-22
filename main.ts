@@ -115,7 +115,7 @@ namespace AMC5883L {
 
     function ready() {
         let c = i2cRead(addr, QMC5883L_STATUS, 1)
-        serial.writeNumber(c)
+        //serial.writeNumber(c)
         if (!c) { 
             return 0;
         }
