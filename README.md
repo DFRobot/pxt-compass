@@ -1,17 +1,25 @@
 # Compass
 
-This is the dfrobot triaxial electronic compass library.
+CMPS11 - Tilt Compensated Compass Module 
+![image]()
+---------------------------------------------------------
 
-## TODO
+## Table of Contents
 
-- [ ] Add a reference for your blocks here
-- [ ] Add "icon.png" image (300x200) in the root folder
-- [ ] Add "- beta" to the GitHub project description if you are still iterating it.
-- [ ] Turn on your automated build on https://travis-ci.org
-- [ ] Use "pxt bump" to create a tagged release on GitHub
-- [ ] Get your package reviewed and approved https://makecode.microbit.org/packages/approval
+* [URL](#url)
+* [Summary](#summary)
+* [Blocks](#blocks)
+* [Example](#example)
+* [License](#license)
 
-Read more at https://makecode.microbit.org/packages/build-your-own
+## URL
+project URL: ```https://github.com/DFRobot/pxt-Obloq```
+
+## Summary
+The CMPS11 is our 3rd generation tilt compensated compass. Employing a 3-axis magnetometer, a 3-axis gyro and a 3-axis accelerometer. A Kalman filter combines the gyro and accelerometer to remove the errors caused by tilting of the PCB. The CMPS11 produces a result of 0-3599 representing 0-359.9 or 0 to 255. The output of the three sensors measuring x, y and z components of the magnetic field, together with the pitch and roll are used to calculate the bearing, each of these components are also made available in there raw form. The CMPS11 module requires a power supply at  3.6 - 5v and draws a nominal 25mA of current. A choice of  serial or I2C interfaces are provided.
+
+## Blocks
+
 
 ## License
 
@@ -21,4 +29,3 @@ MIT
 
 * for PXT/microbit
 (The metadata above is needed for package search.)
-
