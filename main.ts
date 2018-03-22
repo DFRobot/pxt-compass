@@ -78,11 +78,11 @@ namespace AMC5883L {
         _200HZ = 200
     }
 
-    //% advanced=true shim=AMC5883L::cpp_division
+   /* //% advanced=true shim=AMC5883L::cpp_division
     function cpp_division(a: number, b: number): Buffer {
         let buf = pins.createBuffer(2)
         return buf
-    }    
+    }    */
 
 
 
@@ -234,15 +234,15 @@ namespace AMC5883L {
         x -= (xhigh + xlow) / 2
         y -= (yhigh + ylow) / 2
         //Rescale the measurement to the range observed
-        //let fx = x / (xhigh - xlow)
-        //let _fx = x % (xhigh - xlow)
-        //let fy = y / (yhigh - ylow)
-        //let _fy = y % (yhigh - ylow)
+        let fx = x / (xhigh - xlow)
+        let _fx = x % (xhigh - xlow)
+        let fy = y / (yhigh - ylow)
+        let _fy = y % (yhigh - ylow)
    
-        let fx = pins.createBuffer(2)
-        let fy = pins.createBuffer(2)
-        fx = cpp_division(x, xhigh - xlow);
-        fy = cpp_division(x, xhigh - xlow);
+      //  let fx = pins.createBuffer(2)
+       // let fy = pins.createBuffer(2)
+       // fx = cpp_division(x, xhigh - xlow);
+        //fy = cpp_division(x, xhigh - xlow);
 
        // let heading = 180.0*
         

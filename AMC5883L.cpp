@@ -4,7 +4,7 @@ using namespace pxt;
 
 namespace AMC5883L {
 
-    //%
+ /*   //%
     ManagedBuffer cpp_createBuffer(int size)
     {
         return ManagedBuffer(size).leakData();
@@ -16,7 +16,7 @@ namespace AMC5883L {
         buf[0] = a / b;
         buf[0] = a % b;
         return buf;
-    }
+    }*.
 
 }
 
