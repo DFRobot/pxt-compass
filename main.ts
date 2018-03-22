@@ -3,6 +3,7 @@
 //The default I2C address of this chip
 const QMC5883L_ADDR = 0x0D
 
+
 //Register numbers
 const QMC5883L_X_LSB = 0
 const QMC5883L_X_MSB = 1
