@@ -196,7 +196,7 @@ namespace AMC5883L {
         if (z > 32767) { 
             z = z-65536
         }
-        X = x;
+        X = 10.5;
         Y = y;
         Z = z;
         return 1
@@ -231,8 +231,8 @@ namespace AMC5883L {
         let fy = y / (yhigh - ylow)
         let _fy = y % (yhigh - ylow)
 
-        let heading = 180.0*
-        */
+        let heading = 180.0**/
+        
        return 0 
     }
 
