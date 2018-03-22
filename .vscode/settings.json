@@ -15,5 +15,13 @@
         "**/yotta_modules": true,
         "**/yotta_targets": true,
         "**/pxt_modules": true
+    },
+    "files.associations": {
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp"
     }
 }
