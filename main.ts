@@ -196,7 +196,7 @@ namespace AMC5883L {
         if (z > 32767) { 
             z = z-65536
         }
-        X = 10.5;
+        X = x;
         Y = y;
         Z = z;
         return 1
@@ -211,7 +211,7 @@ namespace AMC5883L {
     //% blockId=AMC5883L_readHeading
     //% block="Read heading"
     export function AMC5883L_readHeading(a: number): number {
-       /* if(!AMC5883L_readRaw()) return 0
+        if(!AMC5883L_readRaw()) return 0
         let x = X
         let y = Y
         let z = Z
@@ -231,9 +231,9 @@ namespace AMC5883L {
         let fy = y / (yhigh - ylow)
         let _fy = y % (yhigh - ylow)
 
-        let heading = 180.0**/
+        let heading = 180.0*
         
-       return 0 
+       return 0
     }
 
     /**
