@@ -84,8 +84,8 @@ namespace AMC5883L {
         pins.i2cWriteNumber(QMC5883L_ADDR, value, NumberFormat.UInt8BE)
     }
 
-    function i2cReadByte() {
-        return pins.i2cReadBuffer(addr, 1)[0]
+    function i2cReadByte(count: number) {
+        return pins.i2cReadBuffer(addr, count)
     }
 
     function i2cRead(addr: number, reg: number, count: number) { 
@@ -119,7 +119,7 @@ namespace AMC5883L {
         if (!c) { 
             return 0;
         }
-        let status = i2cReadByte()
+        let status = i2cReadByte(1)[0]
         return status & QMC5883L_STATUS_DRDY
     }
 
@@ -175,12 +175,13 @@ namespace AMC5883L {
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
             return 0
         }
-        let q = i2cReadByte(); //0
-        let w = i2cReadByte();//121
-        let e = i2cReadByte(); //248
-        let r = i2cReadByte(); //5
-        let t = i2cReadByte(); //0
-        let u = i2cReadByte(); //1
+        let data = i2cReadByte(6)
+        let q = data[0]
+        let w = data[1]
+        let e = data[2]
+        let r = data[3]
+        let t = data[4]
+        let u = data[5]
         serial.writeString("|"+q+"|"+w+"|"+e+"|"+r+"|"+t+"|"+u+"|\r")
 
         let x = q | (w << 8)
