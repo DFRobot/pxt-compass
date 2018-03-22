@@ -1,5 +1,3 @@
-
-
 //The default I2C address of this chip
 const QMC5883L_ADDR = 0x0D
 
