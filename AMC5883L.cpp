@@ -7,7 +7,7 @@ namespace AMC5883L {
         Buffer buf = createBuffer(2);
         buf[0] = a / b;
         buf[0] = a % b;
-        return buf
+        return buf;
     }
 
 }
