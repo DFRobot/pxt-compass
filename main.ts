@@ -78,6 +78,14 @@ namespace AMC5883L {
         _200HZ = 200
     }
 
+    //% advanced=true shim=AMC5883L::cpp_division
+    function cpp_division(a: number, b: number): Buffer {
+        let buf = pins.createBuffer(1)
+        return buf
+    }    
+
+
+
 
 
     function i2cWriteByte(value: number) {
@@ -231,7 +239,9 @@ namespace AMC5883L {
         let fy = y / (yhigh - ylow)
         let _fy = y % (yhigh - ylow)
 
-        let heading = 180.0*
+        
+
+       // let heading = 180.0*
         
        return 0
     }

@@ -10,6 +10,7 @@
     "files": [
         "README.md",
         "main.ts",
+        "AMC5883L.cpp",
         "_locales/zh/CMPS11-strings.json"
     ],
     "testFiles": [
