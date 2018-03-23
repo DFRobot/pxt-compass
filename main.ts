@@ -57,6 +57,8 @@ namespace AMC5883L {
     let xlow = 0
     let yhigh = 0
     let ylow = 0
+    let zhigh = 0
+    let zlow = 0
 
     let X = 0;
     let Y = 0;
@@ -64,6 +66,7 @@ namespace AMC5883L {
 
     let Xoffset = -3518
     let Yoffset = -4011
+    let Zoffset = 0
 
     /**
      * The user can choose the step motor model.
@@ -109,7 +112,10 @@ namespace AMC5883L {
         return 0
     }
 
-
+    //% advanced=true shim=AMC5883L::cpp_yaw
+    function cpp_yaw(f: number, h: number, X: number, Y: number): number { 
+        return 0
+    }    
 
     function i2cWriteByte(value: number) {
         pins.i2cWriteNumber(QMC5883L_ADDR, value, NumberFormat.UInt8BE)
@@ -330,16 +336,19 @@ namespace AMC5883L {
             if (x > xhigh) xhigh = x
             if (y < ylow) ylow = y
             if (y > yhigh) yhigh = y
+            if (z < zlow) zlow = z
+            if (z > zhigh) zhigh = z
 
             basic.pause(1)
             time += 1
-            if (time > 300) { 
+            if (time > 500) { 
                 break
             }
             //return cpp_division(fx, _fx, fy, _fy)
         }
         Xoffset = (xhigh + xlow) / 2
         Yoffset = (yhigh + ylow) / 2
+        Zoffset = (zhigh + zlow) / 2
         //serial.writeString(Xoffset + "\r\n")
         //serial.writeString(Yoffset+"\r\n")
         return 1
@@ -406,6 +415,37 @@ namespace AMC5883L {
     //% blockId=test
     //% block="test"
     export function test(): number {
+        let nx = X - Xoffset
+        let ny = Y - Yoffset
+        return cpp_division(nx, 0,ny, 0)
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=9
+    //% blockId=yaw
+    //% block="yaw"
+    export function yaw(): number {
+        let nx = X - Xoffset
+        let ny = Y - Yoffset
+        let nz = Z - Zoffset
+        let fyj = cpp_division(nx, 0, nz, 0)
+        let hgj = cpp_division(ny, 0, nz, 0)
+        return cpp_yaw(fyj, hgj, X, Y)
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=8
+    //% blockId=test
+    //% block="test2"
+    export function test2(): number {
         let nx = X - Xoffset
         let ny = Y - Yoffset
         return cpp_division(nx, 0,ny, 0)

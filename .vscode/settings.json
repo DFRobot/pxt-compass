@@ -22,6 +22,7 @@
         "vector": "cpp",
         "xstring": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "cmath": "cpp"
     }
 }

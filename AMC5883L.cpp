@@ -23,15 +23,33 @@ namespace AMC5883L {
         xx = x + xx;
         yy = y + yy;
 
-        char buf[20];
-        sprintf(buf, "|%d|%d|", a, b);
         int heding = 180.0 * atan2(yy, xx) / 3.14159265358979323846264338327950288;
-        if (heding <= 0){
+        if (heding < 0){
             heding += 360;
         }
         return heding;
     }
 
+    //%
+    int cpp_yaw(int f, int h, int X, int Y){
+        float Xh = X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
+        float Yh = Y * cos(h) + Z * sin(h);
+
+        if(Xh<0){
+            int a = 180 - atan2(Yh, Xh) * 180 / 3.14159265358979323846264338327950288;
+            return a;
+        }else if(Xh>0&&Yh<0){
+            int b = -atan2(Yh, Xh) * 180 / 3.14159265358979323846264338327950288;
+            return b;
+        }else if(Xh>0&&Yh>0){
+            int c = 360 - atan2(Yh, Xh) * 180 / 3.14159265358979323846264338327950288;
+            return c;
+        }else if(Xh==0 && Yh<0){
+            return 90;
+        }else if(Xh==0 && Yh>0){
+            return 270;
+        }
+    }
 
 }
 
