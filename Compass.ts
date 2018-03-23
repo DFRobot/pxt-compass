@@ -353,8 +353,8 @@ namespace Compass {
             QMC5883L_init()
         }
         let time = 0
+        led.plot(2, 2)
         while (1) {
-            led.plot(2, 2)
             QMC5883L_getData()
             let x = X
             let y = Y
