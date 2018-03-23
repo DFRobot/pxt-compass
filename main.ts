@@ -234,7 +234,7 @@ namespace QMC5883L {
     */
     //% weight=70
     //% blockId=QMC5883L_setOversampling
-    //% block="Set over sampling %Oversampling"
+    //% block="Set over sampling %index"
     export function QMC5883L_setOversampling(index: Oversampling): void {
         switch (index) { 
             case Oversampling._OS512: oversampling = QMC5883L_CONFIG_OS512;
