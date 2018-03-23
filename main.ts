@@ -62,6 +62,9 @@ namespace AMC5883L {
     let Y = 0;
     let Z = 0;
 
+    let Xoffset = 0
+    let Yoffset = 0
+
     /**
      * The user can choose the step motor model.
      */
@@ -276,15 +279,7 @@ namespace AMC5883L {
         reconfig()
     }
 
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=55
-    //% blockId=AMC5883L_readHeading
-    //% block="Read heading"
-    export function AMC5883L_readHeading(): number {
+ /*   export function AMC5883L_readHeading(): number {
         if(!AMC5883L_getData()) return 0
         let x = X
         let y = Y
@@ -313,7 +308,43 @@ namespace AMC5883L {
         //fy = cpp_division(x, xhigh - xlow);
 
        // let heading = 180.0*
+    }*/
+
+        /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=55
+    //% blockId=AMC5883L_calibration
+    //% block="Calibration"
+    export function AMC5883L_calibration(): number {
+        let time = 0
+        while (1) {
+            if (!AMC5883L_getData()) return 0
+            let x = X
+            let y = Y
+            let z = Z
+            //Update the observed boundaries of the measurements
+            if (x < xlow) xlow = x
+            if (x > xhigh) xhigh = x
+            if (y < ylow) ylow = y
+            if (y > yhigh) yhigh = y
+
+            basic.pause(1)
+            time += 1
+            if (time > 2000) { 
+                break
+            }
+            //return cpp_division(fx, _fx, fy, _fy)
+        }
+        Xoffset = (xhigh + xlow) / 2
+        Yoffset = (yhigh + ylow) / 2
     }
+
+
+
+
 
     /**
      * This function is used to get all of the sensor data,
@@ -363,5 +394,17 @@ namespace AMC5883L {
     }
 
 
-
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=10
+    //% blockId=test
+    //% block="test"
+    export function test(): number {
+        let nx = X - Xoffset
+        let ny = Y - Yoffset
+        return cpp_division(X, 0, Y, 0)
+    }
 }
