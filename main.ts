@@ -336,7 +336,7 @@ namespace AMC5883L {
 
             basic.pause(1)
             time += 1
-            if (time > 500) { 
+            if (time > 300) { 
                 break
             }
             //return cpp_division(fx, _fx, fy, _fy)
