@@ -340,6 +340,7 @@ namespace AMC5883L {
         }
         Xoffset = (xhigh + xlow) / 2
         Yoffset = (yhigh + ylow) / 2
+        return 1
     }
 
 
