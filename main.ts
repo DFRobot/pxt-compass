@@ -30,8 +30,6 @@ namespace QMC5883L {
      * (2 times or more) of sampling rate on the analog signal sampling, the sampling 
      * rate is the only one that can rebuild analog signal sampling rate, usually the 
      * sampling process of analog to digital.
-     * oversampling:过采样，是指用大于信号带宽（2倍或以上）的采样率对模拟信号进行采样，
-     * 这种采样率是能够唯一重建模拟信号的采样率，一般是模拟到数字的采样过程。
     */
     //% weight=70
     //% blockId=QMC5883L_setOversampling
