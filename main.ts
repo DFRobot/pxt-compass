@@ -408,38 +408,10 @@ namespace AMC5883L {
     */
     //% weight=10
     //% blockId=yaw
-    //% block="yaw"
+    //% block="compass heading(°)"
     export function yaw(): number {
         let nx = X - Xoffset
         let ny = Y - Yoffset
         return cpp_division(nx, 0,ny, 0)
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=9
-    //% blockId=pitch
-    //% block="pitch"
-    export function pitch(): number {
-        let nx = X - Xoffset
-        let nz = Z - Zoffset
-        return cpp_division(nx, 0, nz, 0)
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=8
-    //% blockId=roll
-    //% block="roll"
-    export function roll(): number {
-        let nz = Z - Zoffset
-        let ny = Y - Yoffset
-        return cpp_division(ny, 0, nz, 0)
     }
 }
