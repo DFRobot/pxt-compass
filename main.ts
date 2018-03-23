@@ -47,7 +47,7 @@ const QMC5883L_CONFIG_CONT = 1
  *This is DFRobot: the electronic compass user control library.
  */
 //% weight=10 color=#00CED1 icon="\uf14e" block="compass"
-namespace AMC5883L {
+namespace QMC5883L {
     let addr = 0
     let oversampling = 0
     let range = 0
@@ -110,7 +110,7 @@ namespace AMC5883L {
     }
 
     
-    //% advanced=true shim=AMC5883L::cpp_division
+    //% advanced=true shim=QMC5883L::cpp_division
     function cpp_division(x: number, _x: number, y: number, _y: number): number { 
         return 0
     }  
@@ -159,25 +159,23 @@ namespace AMC5883L {
     }
 
 
-    
-
     /**
      * Compass initialization.
     */
     //% weight=80
-    //% blockId=AMC5883L_init
+    //% blockId=QMC5883L_init
     //% block="Init compass"
-    export function AMC5883L_init(): void {
+    export function QMC5883L_init(): void {
         if (!init) {
             addr = QMC5883L_ADDR
             if (!oversampling) { oversampling = QMC5883L_CONFIG_OS512 }
             if (!range) { range = QMC5883L_CONFIG_2GAUSS }
             if (!rate) { rate = QMC5883L_CONFIG_50HZ }
             if (!mode) { mode = QMC5883L_CONFIG_CONT }
-           /* oversampling = QMC5883L_CONFIG_OS512
-            range =  QMC5883L_CONFIG_2GAUSS
-            rate =  QMC5883L_CONFIG_50HZ
-            mode = QMC5883L_CONFIG_CONT*/
+            //oversampling = QMC5883L_CONFIG_OS512
+            //range =  QMC5883L_CONFIG_2GAUSS
+            //rate =  QMC5883L_CONFIG_50HZ
+            //mode = QMC5883L_CONFIG_CONT
             reset()
         }    
         init = true
@@ -187,11 +185,11 @@ namespace AMC5883L {
      * Get the data in the x,y,z direction..
     */
     //% weight=75
-    //% blockId=AMC5883L_getData
+    //% blockId=QMC5883L_getData
     //% block="Get data"
-    export function AMC5883L_getData(): number {
+    export function QMC5883L_getData(): number {
         if (!init) { 
-            AMC5883L_init()
+            QMC5883L_init()
         }
         while (!ready()) { }
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
@@ -229,9 +227,9 @@ namespace AMC5883L {
      * Set Over sampling.
     */
     //% weight=70
-    //% blockId=AMC5883L_setOversampling
+    //% blockId=QMC5883L_setOversampling
     //% block="Set over sampling %Oversampling"
-    export function AMC5883L_setOversampling(index: Oversampling): void {
+    export function QMC5883L_setOversampling(index: Oversampling): void {
         switch (index) { 
             case Oversampling._OS512: oversampling = QMC5883L_CONFIG_OS512;
                 break;
@@ -253,9 +251,9 @@ namespace AMC5883L {
      * @param index to index, eg: Sampling._50HZ
     */
     //% weight=65
-    //% blockId=AMC5883L_setSamplingRate
+    //% blockId=QMC5883L_setSamplingRate
     //% block="Set sampling rate %index"
-    export function AMC5883L_setSamplingRate(index: Sampling): void {
+    export function QMC5883L_setSamplingRate(index: Sampling): void {
         switch (index) { 
             case Sampling._10HZ: rate = QMC5883L_CONFIG_10HZ;
                 break;
@@ -276,9 +274,9 @@ namespace AMC5883L {
      * @param index to SamplingRate, eg: Range._2GAUSS
     */
     //% weight=60
-    //% blockId=AMC5883L_setRange
+    //% blockId=QMC5883L_setRange
     //% block="Set range %Range"
-    export function AMC5883L_setRange(index: Range): void {
+    export function QMC5883L_setRange(index: Range): void {
         switch (index) { 
             case Range._2GAUSS: range = QMC5883L_CONFIG_2GAUSS;
                 break;
@@ -290,8 +288,8 @@ namespace AMC5883L {
         }
     }
 
- /*   export function AMC5883L_readHeading(): number {
-        if(!AMC5883L_getData()) return 0
+ /*   export function QMC5883L_readHeading(): number {
+        if(!QMC5883L_getData()) return 0
         let x = X
         let y = Y
         let z = Z
@@ -325,15 +323,15 @@ namespace AMC5883L {
      * Calibration compass.
     */
     //% weight=55
-    //% blockId=AMC5883L_calibration
+    //% blockId=QMC5883L_calibration
     //% block="Calibration"
-    export function AMC5883L_calibration(): number {
+    export function QMC5883L_calibration(): number {
         if (!init) { 
-            AMC5883L_init()
+            QMC5883L_init()
         }
         let time = 0
         while (1) {
-            if (!AMC5883L_getData()) return 0
+            if (!QMC5883L_getData()) return 0
             let x = X
             let y = Y
             let z = Z
@@ -365,12 +363,12 @@ namespace AMC5883L {
      * Get the original data in the X-axis direction.
     */
     //% weight=45
-    //% blockId=AMC5883L_x
+    //% blockId=QMC5883L_x
     //% block="X"
-    export function AMC5883L_x(): number {
+    export function QMC5883L_x(): number {
         if (!init) { 
-            AMC5883L_init()
-            AMC5883L_getData()
+            QMC5883L_init()
+            QMC5883L_getData()
             getData = false
         }
         return X
@@ -379,12 +377,12 @@ namespace AMC5883L {
      * Get the original data in the Y-axis direction.
     */
     //% weight=40
-    //% blockId=AMC5883L_y
+    //% blockId=QMC5883L_y
     //% block="Y"
-    export function AMC5883L_y(): number {
+    export function QMC5883L_y(): number {
         if (!init) { 
-            AMC5883L_init()
-            AMC5883L_getData()
+            QMC5883L_init()
+            QMC5883L_getData()
             getData = false
         }
         return Y
@@ -394,12 +392,12 @@ namespace AMC5883L {
      * Get the original data in the Z-axis direction..
     */
     //% weight=35
-    //% blockId=AMC5883L_z
+    //% blockId=QMC5883L_z
     //% block="Z"
-    export function AMC5883L_z(): number {
+    export function QMC5883L_z(): number {
         if (!init) { 
-            AMC5883L_init()
-            AMC5883L_getData()
+            QMC5883L_init()
+            QMC5883L_getData()
             getData = false
         }
         return Z
@@ -413,7 +411,7 @@ namespace AMC5883L {
     //% block="compass heading(°)"
     export function yaw(): number {
         if (!getData) { 
-            AMC5883L_getData()
+            QMC5883L_getData()
         }
         let nx = X - Xoffset
         let ny = Y - Yoffset

@@ -3,7 +3,7 @@
 
 using namespace pxt;
 
-namespace AMC5883L {
+namespace QMC5883L {
     //%
     int cpp_division(int x, int _x, int y, int _y){
         int counta = 0;
