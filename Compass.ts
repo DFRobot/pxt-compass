@@ -342,7 +342,7 @@ namespace Compass {
         }
         let time = 0
         while (1) {
-            if (!QMC5883L_getData()) return 0
+            QMC5883L_getData()
             let x = X
             let y = Y
             let z = Z
