@@ -32,7 +32,7 @@ namespace AMC5883L {
 
     //%
     int cpp_yaw(int f, int h, int X, int Y, int Z){
-        float Xh = X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
+        /*float Xh = X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
         float Yh = Y * cos(h) + Z * sin(h);
 
         if(Xh<0){
@@ -49,7 +49,7 @@ namespace AMC5883L {
         }else if(Xh==0 && Yh>0){
             return 270;
         }
-        
+        */
         return 0;
     }
 
