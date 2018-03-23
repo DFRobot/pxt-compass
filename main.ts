@@ -69,7 +69,7 @@ namespace AMC5883L {
     let Zoffset = 0
 
     /**
-     * The user can choose the step motor model.
+     * .
      */
     export enum Oversampling { 
         //% block="OS512"
@@ -83,7 +83,7 @@ namespace AMC5883L {
     }
 
     /**
-     * The user can choose the step motor model.
+     * .
      */
     export enum Range { 
         //% block="2GAUSS"
@@ -93,7 +93,7 @@ namespace AMC5883L {
     }
 
     /**
-     * The user can choose the step motor model.
+     * .
      */
     export enum Sampling { 
         //% block="10HZ"
@@ -159,9 +159,7 @@ namespace AMC5883L {
     
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Compass initialization.
     */
     //% weight=80
     //% blockId=AMC5883L_init
@@ -176,9 +174,7 @@ namespace AMC5883L {
     }
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Get the data in the x,y,z direction..
     */
     //% weight=75
     //% blockId=AMC5883L_getData
@@ -216,9 +212,7 @@ namespace AMC5883L {
     }
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Set Over sampling.
     */
     //% weight=70
     //% blockId=AMC5883L_setOversampling
@@ -239,9 +233,7 @@ namespace AMC5883L {
     }
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Set sampling Rate.
      * @param index to index, eg: Sampling._50HZ
     */
     //% weight=65
@@ -262,9 +254,7 @@ namespace AMC5883L {
     }
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Set measuring range.
      * @param index to SamplingRate, eg: Range._2GAUSS
     */
     //% weight=60
@@ -311,10 +301,8 @@ namespace AMC5883L {
        // let heading = 180.0*
     }*/
 
-        /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+    /**
+     * Calibration compass.
     */
     //% weight=55
     //% blockId=AMC5883L_calibration
@@ -354,9 +342,7 @@ namespace AMC5883L {
 
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * reset.
     */
     //% weight=50
     //% blockId=AMC5883L_reset
@@ -367,9 +353,7 @@ namespace AMC5883L {
     }
 
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Get the original data in the X-axis direction.
     */
     //% weight=45
     //% blockId=AMC5883L_x
@@ -378,9 +362,7 @@ namespace AMC5883L {
         return X
     }
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Get the original data in the Y-axis direction.
     */
     //% weight=40
     //% blockId=AMC5883L_y
@@ -388,10 +370,9 @@ namespace AMC5883L {
     export function AMC5883L_y(): number {
         return Y
     }
+
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Get the original data in the Z-axis direction..
     */
     //% weight=35
     //% blockId=AMC5883L_z
@@ -400,11 +381,8 @@ namespace AMC5883L {
         return Z
     }
 
-
     /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
+     * Obtain the compass navigation Angle..
     */
     //% weight=10
     //% blockId=yaw
