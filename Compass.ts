@@ -47,7 +47,7 @@ const QMC5883L_CONFIG_CONT = 1
  *This is DFRobot: the electronic compass user control library.
  */
 //% weight=10 color=#00CED1 icon="\uf14e" block="Compass"
-namespace QMC5883L {
+namespace Compass {
     let addr = 0
     let oversampling = 0
     let range = 0
@@ -110,7 +110,7 @@ namespace QMC5883L {
     }
 
     
-    //% advanced=true shim=QMC5883L::cpp_division
+    //% advanced=true shim=Compass::cpp_division
     function cpp_division(x: number, _x: number, y: number, _y: number): number { 
         return 0
     }  

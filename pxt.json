@@ -9,9 +9,9 @@
     },
     "files": [
         "README.md",
-        "QMC5883L.ts",
-        "QMC5883L.cpp",
-        "_locales/zh/QMC5883L-strings.json"
+        "Compass.ts",
+        "Compass.cpp",
+        "_locales/zh/Compass-strings.json"
     ],
     "testFiles": [
         "test.ts"

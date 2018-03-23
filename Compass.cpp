@@ -3,7 +3,7 @@
 
 using namespace pxt;
 
-namespace QMC5883L {
+namespace Compass {
     //%
     int cpp_division(int x, int _x, int y, int _y){
         int counta = 0;
