@@ -434,7 +434,7 @@ namespace AMC5883L {
         let nz = Z - Zoffset
         let fyj = cpp_division(nx, 0, nz, 0)
         let hgj = cpp_division(ny, 0, nz, 0)
-        return cpp_yaw(fyj, hgj, X, Y, Z)
+        return 0//cpp_yaw(fyj, hgj, X, Y, Z)
     }
 
     /**
