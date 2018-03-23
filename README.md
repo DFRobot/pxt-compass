@@ -1,7 +1,6 @@
 # Compass
 
-CMPS11 - Tilt Compensated Compass Module 
-![image]()
+MAX:bot Compass Module
 ---------------------------------------------------------
 
 ## Table of Contents
@@ -13,13 +12,24 @@ CMPS11 - Tilt Compensated Compass Module
 * [License](#license)
 
 ## URL
-project URL: ```https://github.com/DFRobot/pxt-Obloq```
+project URL: ```https://github.com/DFRobot/pxt-compass```
 
 ## Summary
-The CMPS11 is our 3rd generation tilt compensated compass. Employing a 3-axis magnetometer, a 3-axis gyro and a 3-axis accelerometer. A Kalman filter combines the gyro and accelerometer to remove the errors caused by tilting of the PCB. The CMPS11 produces a result of 0-3599 representing 0-359.9 or 0 to 255. The output of the three sensors measuring x, y and z components of the magnetic field, together with the pitch and roll are used to calculate the bearing, each of these components are also made available in there raw form. The CMPS11 module requires a power supply at  3.6 - 5v and draws a nominal 25mA of current. A choice of  serial or I2C interfaces are provided.
+
+This library provides support for the QMC5883L,All you need to do is copy the URL above and search in makecode to download the library.
 
 ## Blocks
+Initialize the compass, which will reset the hardware and begin continuous measurement mode:
 
+Get data magnetometer and temperature values from the compass.
+
+From the perspective of reading on a compass direction, returns 0-359 ° integer
+
+Used to calibrate the compass, after using the calibration function, approximately 2s-3s is used to calibrate the operation and rotate the compass in the horizontal direction for a week.
+
+You can adjust the performance of the chip with the following methods:
+
+Allowable values for rate are 10, 50, 100, or 200 Hertz. range may be 2 or 8 (Gauss). ovl may be 512, 256, 128, or 64.
 
 ## License
 
