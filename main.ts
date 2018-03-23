@@ -406,6 +406,6 @@ namespace AMC5883L {
     export function test(): number {
         let nx = X - Xoffset
         let ny = Y - Yoffset
-        return cpp_division(X, 0, Y, 0)
+        return cpp_division(nx, 0,ny, 0)
     }
 }
