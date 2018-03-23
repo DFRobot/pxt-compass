@@ -336,7 +336,7 @@ namespace Compass {
     //% weight=55
     //% blockId=QMC5883L_calibration
     //% block="Calibration"
-    export function QMC5883L_calibration(): number {
+    export function QMC5883L_calibration(): void {
         if (!init) { 
             QMC5883L_init()
         }
@@ -373,7 +373,6 @@ namespace Compass {
         led.unplot(2, 2)
         //serial.writeString(Xoffset + "\r\n")
         //serial.writeString(Yoffset+"\r\n")
-        return 1
     }
 
 
