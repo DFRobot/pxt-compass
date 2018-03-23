@@ -71,6 +71,8 @@ namespace Compass {
     let getData = false
     let init = false
 
+    let _led = 0
+
     /**
      * .
      */
@@ -156,6 +158,16 @@ namespace Compass {
         }
         let status = i2cReadByte(1)[0]
         return status & QMC5883L_STATUS_DRDY
+    }
+
+    function ledFlip() { 
+        if (_led) {
+            led.unplot(2, 2)
+            _led = 0
+        } else { 
+            led.plot(2, 2)
+            _led = 1
+        }
     }
 
 
@@ -358,10 +370,9 @@ namespace Compass {
             basic.pause(1)
             time += 1
             if (time % 40 == 0) {
-                led.plot(2, 2)
-            } else if (time % 80 == 0) { 
-                led.unplot(2, 2) 
+                ledFlip()
             }
+
             if (time > 300) { 
                 break
             }
