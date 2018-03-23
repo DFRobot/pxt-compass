@@ -11,7 +11,7 @@
         "README.md",
         "Compass.ts",
         "Compass.cpp",
-        "_locales/zh/Aaa-strings.json"
+        "_locales/zh/Compass-strings.json"
     ],
     "testFiles": [
         "test.ts"
