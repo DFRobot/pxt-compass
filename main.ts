@@ -66,13 +66,13 @@ namespace AMC5883L {
      * The user can choose the step motor model.
      */
     export enum Oversampling { 
-        //% block="2GAUSS"
+        //% block="OS512"
         _OS512 = QMC5883L_CONFIG_OS512,
-        //% block="2GAUSS"
+        //% block="OS256"
         _OS256 = QMC5883L_CONFIG_OS256,
-                //% block="2GAUSS"
+        //% block="OS128"
         _OS128 = QMC5883L_CONFIG_OS128,
-                        //% block="2GAUSS"
+        //% block="OS64"
         _OS64 = QMC5883L_CONFIG_OS64
     }
 
@@ -176,83 +176,7 @@ namespace AMC5883L {
      * and every time you need to get any data you have to 
      * perform this function.
     */
-    //% weight=80
-    //% blockId=AMC5883L_reset
-    //% block="Reset"
-    export function AMC5883L_reset(): void {
-        i2cWrite(addr, QMC5883L_RESET, 0x01)
-        reconfig()
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=80
-    //% blockId=AMC5883L_setSamplingRate
-    //% block="Set sampling rate %SamplingRate"
-    export function AMC5883L_setSamplingRate(SamplingRate: Sampling): void {
-        switch (SamplingRate) { 
-            case Sampling._10HZ: rate = QMC5883L_CONFIG_10HZ;
-                break;
-            case Sampling._50HZ: rate = QMC5883L_CONFIG_50HZ;
-                break;
-            case Sampling._100HZ: rate = QMC5883L_CONFIG_100HZ;
-                break;
-            case Sampling._200HZ: rate = QMC5883L_CONFIG_200HZ;
-                break;
-        }
-        reconfig()
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=80
-    //% blockId=AMC5883L_setRange
-    //% block="Set range %Range"
-    export function AMC5883L_setRange(index: Range): void {
-        switch (index) { 
-            case Range._2GAUSS: range = QMC5883L_CONFIG_2GAUSS;
-                break;
-            case Range._8GAUSS: range = QMC5883L_CONFIG_8GAUSS;
-                break;
-        }
-        reconfig()
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=80
-    //% blockId=AMC5883L_setOversampling
-    //% block="Set over sampling %Oversampling"
-    export function AMC5883L_setOversampling(index: Oversampling): void {
-        switch (index) { 
-            case Oversampling._OS512: oversampling = QMC5883L_CONFIG_OS512;
-                break;
-            case Oversampling._OS256: oversampling = QMC5883L_CONFIG_OS256;
-                break;
-            case Oversampling._OS128: oversampling = QMC5883L_CONFIG_OS128;
-                break;
-            case Oversampling._OS64: oversampling = QMC5883L_CONFIG_OS64;
-                break;
-
-        }
-        reconfig()
-    }
-
-    /**
-     * This function is used to get all of the sensor data,
-     * and every time you need to get any data you have to 
-     * perform this function.
-    */
-    //% weight=80
+    //% weight=75
     //% blockId=AMC5883L_getData
     //% block="Get data"
     export function AMC5883L_getData(): number {
@@ -292,7 +216,72 @@ namespace AMC5883L {
      * and every time you need to get any data you have to 
      * perform this function.
     */
-    //% weight=80
+    //% weight=70
+    //% blockId=AMC5883L_setOversampling
+    //% block="Set over sampling %Oversampling"
+    export function AMC5883L_setOversampling(index: Oversampling): void {
+        switch (index) { 
+            case Oversampling._OS512: oversampling = QMC5883L_CONFIG_OS512;
+                break;
+            case Oversampling._OS256: oversampling = QMC5883L_CONFIG_OS256;
+                break;
+            case Oversampling._OS128: oversampling = QMC5883L_CONFIG_OS128;
+                break;
+            case Oversampling._OS64: oversampling = QMC5883L_CONFIG_OS64;
+                break;
+
+        }
+        reconfig()
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+     * @param index to index, eg: Sampling._50HZ
+    */
+    //% weight=65
+    //% blockId=AMC5883L_setSamplingRate
+    //% block="Set sampling rate %index"
+    export function AMC5883L_setSamplingRate(index: Sampling): void {
+        switch (index) { 
+            case Sampling._10HZ: rate = QMC5883L_CONFIG_10HZ;
+                break;
+            case Sampling._50HZ: rate = QMC5883L_CONFIG_50HZ;
+                break;
+            case Sampling._100HZ: rate = QMC5883L_CONFIG_100HZ;
+                break;
+            case Sampling._200HZ: rate = QMC5883L_CONFIG_200HZ;
+                break;
+        }
+        reconfig()
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+     * @param index to SamplingRate, eg: Range._2GAUSS
+    */
+    //% weight=60
+    //% blockId=AMC5883L_setRange
+    //% block="Set range %Range"
+    export function AMC5883L_setRange(index: Range): void {
+        switch (index) { 
+            case Range._2GAUSS: range = QMC5883L_CONFIG_2GAUSS;
+                break;
+            case Range._8GAUSS: range = QMC5883L_CONFIG_8GAUSS;
+                break;
+        }
+        reconfig()
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=55
     //% blockId=AMC5883L_readHeading
     //% block="Read heading"
     export function AMC5883L_readHeading(): number {
@@ -317,8 +306,6 @@ namespace AMC5883L {
         let _fy = y % (yhigh - ylow)
 
         return cpp_division(fx, _fx, fy, _fy)
-   
-
 
       //  let fx = pins.createBuffer(2)
        // let fy = pins.createBuffer(2)
@@ -333,7 +320,20 @@ namespace AMC5883L {
      * and every time you need to get any data you have to 
      * perform this function.
     */
-    //% weight=80
+    //% weight=50
+    //% blockId=AMC5883L_reset
+    //% block="Reset"
+    export function AMC5883L_reset(): void {
+        i2cWrite(addr, QMC5883L_RESET, 0x01)
+        reconfig()
+    }
+
+    /**
+     * This function is used to get all of the sensor data,
+     * and every time you need to get any data you have to 
+     * perform this function.
+    */
+    //% weight=45
     //% blockId=AMC5883L_x
     //% block="X"
     export function AMC5883L_x(): number {
@@ -344,7 +344,7 @@ namespace AMC5883L {
      * and every time you need to get any data you have to 
      * perform this function.
     */
-    //% weight=80
+    //% weight=40
     //% blockId=AMC5883L_y
     //% block="Y"
     export function AMC5883L_y(): number {
@@ -355,7 +355,7 @@ namespace AMC5883L {
      * and every time you need to get any data you have to 
      * perform this function.
     */
-    //% weight=80
+    //% weight=35
     //% blockId=AMC5883L_z
     //% block="Z"
     export function AMC5883L_z(): number {
