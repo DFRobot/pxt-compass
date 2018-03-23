@@ -31,7 +31,7 @@ namespace AMC5883L {
     }
 
     //%
-    int cpp_yaw(int f, int h, int X, int Y){
+    int cpp_yaw(int f, int h, int X, int Y, int Z){
         float Xh = X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
         float Yh = Y * cos(h) + Z * sin(h);
 
