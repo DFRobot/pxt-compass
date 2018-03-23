@@ -257,7 +257,7 @@ namespace QMC5883L {
      * SamplingRate:The process of converting analog signals into digital streams 
      * by A/D converter is called "sampling", and each sampling corresponds to the 
      * amplitude of the analog signal at some point.The number of samples per second
-     *  is called the sampling rate, which is measured per second.
+     * is called the sampling rate, which is measured per second.
      * SamplingRate:A/D转换器将模拟信号转换为数字流的过程称为“采样”，每次采样对应于模拟信号
      * 在某一时刻的幅度。每秒钟的采样次数称为采样率，以每秒采样数为单位。
      * @param index to index, eg: Sampling._50HZ
