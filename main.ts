@@ -225,6 +225,12 @@ namespace QMC5883L {
 
     /**
      * Set Over sampling.
+     * oversampling:Sampling, refers to the use is greater than the signal bandwidth 
+     * (2 times or more) of sampling rate on the analog signal sampling, the sampling 
+     * rate is the only one that can rebuild analog signal sampling rate, usually the 
+     * sampling process of analog to digital.
+     * oversampling:过采样，是指用大于信号带宽（2倍或以上）的采样率对模拟信号进行采样，
+     * 这种采样率是能够唯一重建模拟信号的采样率，一般是模拟到数字的采样过程。
     */
     //% weight=70
     //% blockId=QMC5883L_setOversampling
@@ -248,6 +254,12 @@ namespace QMC5883L {
 
     /**
      * Set sampling Rate.
+     * SamplingRate:The process of converting analog signals into digital streams 
+     * by A/D converter is called "sampling", and each sampling corresponds to the 
+     * amplitude of the analog signal at some point.The number of samples per second
+     *  is called the sampling rate, which is measured per second.
+     * SamplingRate:A/D转换器将模拟信号转换为数字流的过程称为“采样”，每次采样对应于模拟信号
+     * 在某一时刻的幅度。每秒钟的采样次数称为采样率，以每秒采样数为单位。
      * @param index to index, eg: Sampling._50HZ
     */
     //% weight=65
@@ -275,7 +287,7 @@ namespace QMC5883L {
     */
     //% weight=60
     //% blockId=QMC5883L_setRange
-    //% block="Set range %Range"
+    //% block="Set range %index"
     export function QMC5883L_setRange(index: Range): void {
         switch (index) { 
             case Range._2GAUSS: range = QMC5883L_CONFIG_2GAUSS;

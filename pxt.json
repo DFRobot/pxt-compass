@@ -11,7 +11,7 @@
         "README.md",
         "main.ts",
         "QMC5883L.cpp",
-        "_locales/zh/CMPS11-strings.json"
+        "_locales/zh/QMC5883L-strings.json"
     ],
     "testFiles": [
         "test.ts"
