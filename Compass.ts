@@ -357,9 +357,9 @@ namespace Compass {
 
             basic.pause(1)
             time += 1
-            if (time % 10 == 0) {
+            if (time % 40 == 0) {
                 led.plot(2, 2)
-            } else if (time % 20 == 0) { 
+            } else if (time % 80 == 0) { 
                 led.unplot(2, 2) 
             }
             if (time > 300) { 
