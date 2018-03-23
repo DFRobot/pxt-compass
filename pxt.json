@@ -1,7 +1,7 @@
 {
     "name": "Compass",
     "version": "0.0.0",
-    "description": "Magnetic Senso rCmps11",
+    "description": "Magnetic Sensor Cmps11",
     "license": "MIT",
     "dependencies": {
         "core": "*",
