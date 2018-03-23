@@ -25,7 +25,7 @@ Initialize the compass, which will reset the hardware and begin continuous measu
 
 Get data magnetometer and temperature values from the compass.
 
-![image](https://github.com/DFRobot/pxt-compass/blob/master/image/2.png)
+![image](https://github.com/DFRobot/pxt-compass/blob/master/image/2.png)<br>
 ![image](https://github.com/DFRobot/pxt-compass/blob/master/image/2.1.png)
 
 From the perspective of reading on a compass direction, returns 0-359 ° integer
