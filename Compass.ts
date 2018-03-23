@@ -342,6 +342,7 @@ namespace Compass {
         }
         let time = 0
         while (1) {
+            led.plot(2, 2)
             QMC5883L_getData()
             let x = X
             let y = Y
@@ -356,6 +357,11 @@ namespace Compass {
 
             basic.pause(1)
             time += 1
+            if (time % 10 == 0) {
+                led.plot(2, 2)
+            } else if (time % 20 == 0) { 
+                led.unplot(2, 2) 
+            }
             if (time > 300) { 
                 break
             }
@@ -364,6 +370,7 @@ namespace Compass {
         Xoffset = (xhigh + xlow) / 2
         Yoffset = (yhigh + ylow) / 2
         Zoffset = (zhigh + zlow) / 2
+        led.unplot(2, 2)
         //serial.writeString(Xoffset + "\r\n")
         //serial.writeString(Yoffset+"\r\n")
         return 1
