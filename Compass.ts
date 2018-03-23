@@ -369,7 +369,7 @@ namespace Compass {
 
             basic.pause(1)
             time += 1
-            if (time % 10 == 0) {
+            if (time % 3 == 0) {
                 ledFlip()
             }
 
