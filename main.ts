@@ -237,7 +237,9 @@ namespace AMC5883L {
                 break;
 
         }
-        reconfig()
+        if (init) { 
+            reconfig()
+        }
     }
 
     /**
@@ -258,7 +260,9 @@ namespace AMC5883L {
             case Sampling._200HZ: rate = QMC5883L_CONFIG_200HZ;
                 break;
         }
-        reconfig()
+        if (init) { 
+            reconfig()
+        }
     }
 
     /**
@@ -275,7 +279,9 @@ namespace AMC5883L {
             case Range._8GAUSS: range = QMC5883L_CONFIG_8GAUSS;
                 break;
         }
-        reconfig()
+        if (init) { 
+            reconfig()
+        }
     }
 
  /*   export function AMC5883L_readHeading(): number {
@@ -356,6 +362,11 @@ namespace AMC5883L {
     //% blockId=AMC5883L_x
     //% block="X"
     export function AMC5883L_x(): number {
+        if (!init) { 
+            AMC5883L_init()
+            AMC5883L_getData()
+            getData = false
+        }
         return X
     }
     /**
@@ -365,6 +376,11 @@ namespace AMC5883L {
     //% blockId=AMC5883L_y
     //% block="Y"
     export function AMC5883L_y(): number {
+        if (!init) { 
+            AMC5883L_init()
+            AMC5883L_getData()
+            getData = false
+        }
         return Y
     }
 
@@ -375,6 +391,11 @@ namespace AMC5883L {
     //% blockId=AMC5883L_z
     //% block="Z"
     export function AMC5883L_z(): number {
+        if (!init) { 
+            AMC5883L_init()
+            AMC5883L_getData()
+            getData = false
+        }
         return Z
     }
 
