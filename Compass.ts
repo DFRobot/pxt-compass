@@ -177,8 +177,8 @@ namespace Compass {
             //rate =  QMC5883L_CONFIG_50HZ
             //mode = QMC5883L_CONFIG_CONT
             reset()
-        }    
-        init = true
+            init = true
+        }      
     }
 
     /**
