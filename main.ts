@@ -170,10 +170,10 @@ namespace AMC5883L {
     export function AMC5883L_init(): void {
         if (!init) {
             addr = QMC5883L_ADDR
-            oversampling = 0 ? oversampling = QMC5883L_CONFIG_OS512 : oversampling = oversampling
-            range = 0 ? range = QMC5883L_CONFIG_2GAUSS : range = range;
-            rate = 0 ? range = QMC5883L_CONFIG_50HZ : range = rate;
-            mode = 0 ? range = QMC5883L_CONFIG_CONT : range = mode;
+            if (!oversampling) { oversampling = QMC5883L_CONFIG_OS512 }
+            if (!range) { range = QMC5883L_CONFIG_2GAUSS }
+            if (!rate) { rate = QMC5883L_CONFIG_50HZ }
+            if (!mode) { mode = QMC5883L_CONFIG_CONT }
            /* oversampling = QMC5883L_CONFIG_OS512
             range =  QMC5883L_CONFIG_2GAUSS
             rate =  QMC5883L_CONFIG_50HZ
