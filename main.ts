@@ -168,12 +168,14 @@ namespace AMC5883L {
     //% blockId=AMC5883L_init
     //% block="Init compass"
     export function AMC5883L_init(): void {
-        addr = QMC5883L_ADDR
-        oversampling = QMC5883L_CONFIG_OS512
-        range = QMC5883L_CONFIG_2GAUSS
-        rate = QMC5883L_CONFIG_50HZ
-        mode = QMC5883L_CONFIG_CONT
-        reset()
+        if (!init) {
+            addr = QMC5883L_ADDR
+            oversampling = QMC5883L_CONFIG_OS512
+            range = QMC5883L_CONFIG_2GAUSS
+            rate = QMC5883L_CONFIG_50HZ
+            mode = QMC5883L_CONFIG_CONT
+            reset()
+        }    
         init = true
     }
 
