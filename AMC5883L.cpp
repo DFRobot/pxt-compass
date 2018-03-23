@@ -49,6 +49,7 @@ namespace AMC5883L {
         }else if(Xh==0 && Yh>0){
             return 270;
         }
+        return 0;
     }
 
 }
