@@ -23,11 +23,9 @@ namespace AMC5883L {
         xx = x + xx;
         yy = y + yy;
 
-        int heding = 180.0 * atan2(yy, xx) / 3.14159265358979323846264338327950288;
-        if (heding < 0){
-            heding += 360;
-        }
-        return heding;
+        int heading = 180.0 * atan2(yy, xx) / 3.14159265358979323846264338327950288;
+        heading = heading < 0 ? heading + 360 : heading;
+        return heading;
     }
 
 }
