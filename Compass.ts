@@ -187,13 +187,13 @@ namespace Compass {
     //% weight=75
     //% blockId=QMC5883L_getData
     //% block="Get data"
-    export function QMC5883L_getData(): number {
+    export function QMC5883L_getData(): void {
         if (!init) { 
             QMC5883L_init()
         }
         while (!ready()) { }
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
-            return 0
+            return
         }
         let data = i2cReadByte(6)
         let q = data[0]
@@ -220,7 +220,6 @@ namespace Compass {
         Y = y;
         Z = z;
         getData = true
-        return 1
     }
 
     /**
