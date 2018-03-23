@@ -32,8 +32,8 @@ namespace AMC5883L {
 
     //%
     int cpp_yaw(int f, int h, int X, int Y, int Z){
-        float Xh = 0; //X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
-        float Yh = -5; //Y * cos(h) + Z * sin(h);
+      /* float Xh = X * cos(f) + Y * sin(h) * sin(f) - Z * cos(h) * sin(f);
+        float Yh = Y * cos(h) + Z * sin(h);
 
         if(Xh<0){
             int a = 180 - atan2(Yh, Xh) * 180 / 3.14159265358979323846264338327950288;
@@ -48,8 +48,8 @@ namespace AMC5883L {
             return 90;
         }else if(Xh==0 && Yh>0){
             return 270;
-        }
-
+        }*/
+        
         return 0;
     }
 
