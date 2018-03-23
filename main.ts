@@ -68,6 +68,8 @@ namespace AMC5883L {
     let Yoffset = -4011
     let Zoffset = 0
 
+    let getData = false
+
     /**
      * .
      */
@@ -208,6 +210,7 @@ namespace AMC5883L {
         X = x;
         Y = y;
         Z = z;
+        getData = true
         return 1
     }
 
@@ -338,9 +341,6 @@ namespace AMC5883L {
     }
 
 
-
-
-
     /**
      * reset.
     */
@@ -388,8 +388,12 @@ namespace AMC5883L {
     //% blockId=yaw
     //% block="compass heading(°)"
     export function yaw(): number {
+        if (!getData) { 
+            AMC5883L_getData()
+        }
         let nx = X - Xoffset
         let ny = Y - Yoffset
+        getData = false
         return cpp_division(nx, 0,ny, 0)
     }
 }
