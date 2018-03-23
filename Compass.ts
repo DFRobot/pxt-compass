@@ -71,7 +71,7 @@ namespace Compass {
     let getData = false
     let init = false
 
-    let _led = 0
+    let _led = 1
 
     /**
      * .
