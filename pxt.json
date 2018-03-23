@@ -9,7 +9,7 @@
     },
     "files": [
         "README.md",
-        "main.ts",
+        "QMC5883L.ts",
         "QMC5883L.cpp",
         "_locales/zh/QMC5883L-strings.json"
     ],

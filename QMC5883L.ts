@@ -46,7 +46,7 @@ const QMC5883L_CONFIG_CONT = 1
 /**
  *This is DFRobot: the electronic compass user control library.
  */
-//% weight=10 color=#00CED1 icon="\uf14e" block="compass"
+//% weight=10 color=#00CED1 icon="\uf14e" block="Compass"
 namespace QMC5883L {
     let addr = 0
     let oversampling = 0
