@@ -69,6 +69,7 @@ namespace AMC5883L {
     let Zoffset = 0
 
     let getData = false
+    let init = false
 
     /**
      * .
@@ -173,6 +174,7 @@ namespace AMC5883L {
         rate = QMC5883L_CONFIG_50HZ
         mode = QMC5883L_CONFIG_CONT
         reset()
+        init = true
     }
 
     /**
@@ -182,6 +184,9 @@ namespace AMC5883L {
     //% blockId=AMC5883L_getData
     //% block="Get data"
     export function AMC5883L_getData(): number {
+        if (!init) { 
+            AMC5883L_init()
+        }
         while (!ready()) { }
         if (!i2cRead(addr, QMC5883L_X_LSB, 6)) { 
             return 0
@@ -311,6 +316,9 @@ namespace AMC5883L {
     //% blockId=AMC5883L_calibration
     //% block="Calibration"
     export function AMC5883L_calibration(): number {
+        if (!init) { 
+            AMC5883L_init()
+        }
         let time = 0
         while (1) {
             if (!AMC5883L_getData()) return 0
@@ -340,17 +348,6 @@ namespace AMC5883L {
         return 1
     }
 
-
-    /**
-     * reset.
-    */
-    //% weight=50
-    //% blockId=AMC5883L_reset
-    //% block="Reset"
-    export function AMC5883L_reset(): void {
-        i2cWrite(addr, QMC5883L_RESET, 0x01)
-        reconfig()
-    }
 
     /**
      * Get the original data in the X-axis direction.
