@@ -113,7 +113,7 @@ namespace AMC5883L {
     }
 
     //% advanced=true shim=AMC5883L::cpp_yaw
-    function cpp_yaw(f: number, h: number): number { 
+    function cpp_yaw(f: number, h: number, mX: number, mY: number, mZ: number): number { 
         return 0
     }    
 
@@ -434,7 +434,7 @@ namespace AMC5883L {
         let nz = Z - Zoffset
         let fyj = cpp_division(nx, 0, nz, 0)
         let hgj = cpp_division(ny, 0, nz, 0)
-        let num = cpp_yaw(fyj, hgj)
+        let num = cpp_yaw(fyj, hgj,0,0,0)
         return num
     }
 
