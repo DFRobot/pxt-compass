@@ -62,8 +62,8 @@ namespace AMC5883L {
     let Y = 0;
     let Z = 0;
 
-    let Xoffset = 0
-    let Yoffset = 0
+    let Xoffset = -3518
+    let Yoffset = -4011
 
     /**
      * The user can choose the step motor model.
@@ -333,15 +333,15 @@ namespace AMC5883L {
 
             basic.pause(1)
             time += 1
-            if (time > 500) { 
+            if (time > 300) { 
                 break
             }
             //return cpp_division(fx, _fx, fy, _fy)
         }
         Xoffset = (xhigh + xlow) / 2
         Yoffset = (yhigh + ylow) / 2
-        serial.writeString(Xoffset + "\r\n")
-        serial.writeString(Yoffset+"\r\n")
+        //serial.writeString(Xoffset + "\r\n")
+        //serial.writeString(Yoffset+"\r\n")
         return 1
     }
 
