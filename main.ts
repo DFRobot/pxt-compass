@@ -110,12 +110,7 @@ namespace AMC5883L {
     //% advanced=true shim=AMC5883L::cpp_division
     function cpp_division(x: number, _x: number, y: number, _y: number): number { 
         return 0
-    }
-
-    //% advanced=true shim=AMC5883L::cpp_yaw
-    function cpp_yaw(f: number, h: number, mX: number, mY: number, mZ: number): number { 
-        return 0
-    }    
+    }  
 
     function i2cWriteByte(value: number) {
         pins.i2cWriteNumber(QMC5883L_ADDR, value, NumberFormat.UInt8BE)
@@ -412,9 +407,9 @@ namespace AMC5883L {
      * perform this function.
     */
     //% weight=10
-    //% blockId=test
-    //% block="test"
-    export function test(): number {
+    //% blockId=yaw
+    //% block="yaw"
+    export function yaw(): number {
         let nx = X - Xoffset
         let ny = Y - Yoffset
         return cpp_division(nx, 0,ny, 0)
@@ -426,16 +421,12 @@ namespace AMC5883L {
      * perform this function.
     */
     //% weight=9
-    //% blockId=yaw
-    //% block="yaw"
-    export function yaw(): number {
+    //% blockId=pitch
+    //% block="pitch"
+    export function pitch(): number {
         let nx = X - Xoffset
-        let ny = Y - Yoffset
         let nz = Z - Zoffset
-        let fyj = cpp_division(nx, 0, nz, 0)
-        let hgj = cpp_division(ny, 0, nz, 0)
-        let num = cpp_yaw(fyj, hgj,0,0,0)
-        return num
+        return cpp_division(nx, 0, nz, 0)
     }
 
     /**
@@ -444,11 +435,11 @@ namespace AMC5883L {
      * perform this function.
     */
     //% weight=8
-    //% blockId=test
-    //% block="test2"
-    export function test2(): number {
-        let nx = X - Xoffset
+    //% blockId=roll
+    //% block="roll"
+    export function roll(): number {
+        let nz = Z - Zoffset
         let ny = Y - Yoffset
-        return cpp_division(nx, 0,ny, 0)
+        return cpp_division(ny, 0, nz, 0)
     }
 }
