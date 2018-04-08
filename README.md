@@ -44,7 +44,7 @@ Allowable values for rate are 10, 50, 100, or 200 Hertz. range may be 2 or 8 (Ga
 
 ## License
 
-MIT
+GNU
 
 ## Supported targets
 

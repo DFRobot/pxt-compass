@@ -2,7 +2,7 @@
     "name": "Compass",
     "version": "0.0.0",
     "description": "Magnetic Sensor Cmps11",
-    "license": "MIT",
+    "license": "GNU",
     "dependencies": {
         "core": "*",
         "radio": "*"

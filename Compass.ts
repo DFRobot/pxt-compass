@@ -1,3 +1,20 @@
+/*！
+ * @file Compass/Compass.ts
+ * @brief DFRobot's electronic compass makecode library.
+ * @n [Get the module here](http://www.dfrobot.com.cn/goods-1577.html)
+ * @n This electronic compass is integrated into the MAX:bot smart car, 
+ * which can obtain the raw data of the electronic compass triaxial, 
+ * and can also obtain the navigation Angle.
+ *
+ * @copyright	[DFRobot](http://www.dfrobot.com), 2016
+ * @copyright	GNU Lesser General Public License
+ *
+ * @author [email](1035868977@qq.com)
+ * @version  V1.0
+ * @date  2018-03-20
+ */
+
+
 //The default I2C address of this chip
 const QMC5883L_ADDR = 0x0D
 
